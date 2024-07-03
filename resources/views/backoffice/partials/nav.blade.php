@@ -10,9 +10,25 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="/products/">Ver como USUARIO</a>
         </li>
+      
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Categorías
+        </a>
+        <ul class="dropdown-menu">
+            @foreach($categories as $category)
+            <li>
+                <a class="dropdown-item" href="{{ route('backoffice.products.category', ['category_id' => $category->id]) }}">
+                    {{ $category->value }}
+                </a>
+            </li>
+            @endforeach
+        </ul>
+    </li>
+
       </ul>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+      <form class="d-flex" role="search" action="{{ route('backoffice.products.index') }}" method="GET">
+        <input class="form-control me-2" type="search" placeholder="Search" name="search" aria-label="Search">
         <button class="btn btn-outline-warning" type="submit">Search</button>
       </form>
     </div>

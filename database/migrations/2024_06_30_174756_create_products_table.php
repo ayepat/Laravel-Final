@@ -12,15 +12,22 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('products', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
+            $table->increments('id');
+            $table->string('name', 100);
             $table->text('description')->nullable();
             $table->decimal('price', 8, 2);
             $table->string('image_url');
-            $table->tinyInteger('category_id')->unsigned()->nullable()->index();
-            
-    });
-}
+            $table->timestamps();
+
+            $table->unsignedBigInteger('category_id')->nullable();
+            $table->foreign('category_id')
+            ->references ('id')
+            ->on('categories')
+            ->onUpdate('cascade')
+            ->onDelete('cascade')
+            ;
+        });
+    }
 
     /**
      * Reverse the migrations.
@@ -29,9 +36,4 @@ return new class extends Migration
     {
         Schema::dropIfExists('products');
     }
-
-
-
-
-
 };

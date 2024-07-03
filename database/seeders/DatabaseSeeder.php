@@ -5,6 +5,9 @@ namespace Database\Seeders;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Product;
+use App\Models\Tag;
+use App\Models\Category;
 
 class DatabaseSeeder extends Seeder
 {
@@ -13,11 +16,16 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
+        Category::factory(5)->create();
+        Product::factory(20)->create();
+       
+        // php artisan migrate
+        // php artisan db:seed class=MovieSeeder
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
+        Tag::create(['value' => 'porcelana']);
+        Tag::create(['value' => 'melamina']);
+        Tag::create(['value' => 'vidrio']);
+        Tag::create(['value' => 'deco']);
+        Tag::create(['value' => 'nordico']);
     }
 }
