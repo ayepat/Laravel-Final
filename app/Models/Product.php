@@ -12,20 +12,18 @@ class Product extends Model
     use HasFactory;
     //use SoftDeletes;
 
-    public function category() : BelongsTo
+    public function category(): BelongsTo
     {
         return $this->belongsTo(Category::class);
     }
 
     public function tags()
     {
-        return $this->belongsToMany(Tag::class);
+        return $this->belongsToMany(Tag::class, 'product_tag');
     }
 
-    public function image() : BelongsTo 
+    public function image(): BelongsTo
     {
         return $this->belongsTo(Image::class);
     }
-
-
 }

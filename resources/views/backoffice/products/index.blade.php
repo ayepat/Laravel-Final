@@ -29,8 +29,8 @@
                     <td>{{ $product->price }}</td>
                     <td>{{ $product->category ? $product->category->value : 'Sin categoría' }}</td>
                     <td>
-                        @if ($product->image_url)
-                        <img src="{{ asset('storage/' . $product->image_url) }}" alt="{{ $product->name }}" style="width: 200px; height: auto;">
+                        @if ($product->image_path)
+                        <img src="{{ asset('storage/' . $product->image_path) }}" alt="{{ $product->name }}" style="width: 200px; height: auto;">
                         @endif
                     </td>
                     <td>

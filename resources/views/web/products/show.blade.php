@@ -10,7 +10,7 @@
             <div class="col-md-10 col-lg-8">
                 <div class="card">
                     @if ($product)
-                    <img src="{{ asset('storage/' . $product->image_url) }}" class="card-img-top mt-10" alt="{{ $product->name }}">
+                    <img src="{{ asset('storage/' . $product->image_path) }}" class="card-img-top mt-10" alt="{{ $product->name }}">
                     <div class="card-body">
                         <h5 class="card-title">{{ $product->name }}</h5>
                         <p class="card-text">{{ $product->description }}</p>

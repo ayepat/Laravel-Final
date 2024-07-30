@@ -9,14 +9,14 @@ use Illuminate\Support\Facades\Auth;
 
 class BazarController extends Controller
 {
-    protected $categories;
 
+    protected $categories;
     public function __construct()
     {
-
         $this->categories = Category::all();
         view()->share('categories', $this->categories);
     }
+    
     public function index(Request $request)
     {
         $query = Product::query();
@@ -56,6 +56,4 @@ class BazarController extends Controller
     {
         return view('web.landingpage');
     }
-
-    
 }

@@ -14,6 +14,10 @@ use Illuminate\Support\Facades\Route;
 //landing page
 Route::get('/', [BazarController::class, 'landingpage'])->name('web.landingpage');
 
+//landigpage admin
+Route::get('/backoffice', [BackofficeBazarController::class, 'landingpage'])->name('backoffice.landingpage');
+
+
 //---usuario---
     Route::get('/products', [BazarController::class, 'index'])->name('web.products.index');
     Route::get('/products/{id}',[BazarController::class, 'show'])->name('web.products.show');
@@ -24,7 +28,7 @@ Route::get('backoffice/products', [BackofficeBazarController::class, 'index'])->
 Route::get('backoffice/products/create', [BackofficeBazarController::class, 'create'])->name('backoffice.products.create');
 Route::post('backoffice/products', [BackofficeBazarController::class, 'store']);
 Route::get('backoffice/products/{id}/edit', [BackofficeBazarController::class, 'edit']);
-Route::post('backoffice/products/{id}', [BackofficeBazarController::class, 'update']);
+Route::post('backoffice/products/{id}', [BackofficeBazarController::class, 'update'])->name('backoffice.products.update');
 Route::delete('/backoffice/products/{product}', [BackofficeBazarController::class, 'destroy'])->name('backoffice.products.destroy');
 Route::get('backoffice/category/{category_id}', [BackofficeBazarController::class, 'filterByCategory'])->name('backoffice.products.category');
 

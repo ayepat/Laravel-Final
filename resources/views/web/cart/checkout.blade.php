@@ -28,7 +28,7 @@
                         <td>{{ $product->description }}</td>
                         <td>{{ $product->price }}</td>
                         <td>{{ $product->category->value }}</td>
-                        <td><img src="{{ asset('storage/' . $product->image_url) }}" alt="{{ $product->name }}" width="50"></td>
+                        <td><img src="{{ asset('storage/' . $product->image_path) }}" alt="{{ $product->name }}" width="50"></td>
                     </tr>
                 @endforeach
             </tbody>
